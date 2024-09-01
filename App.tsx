@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import {Text, View } from 'react-native';
+import {ImageBackground } from 'react-native';
 
 /* Importando a fonte roboto */
 import {
@@ -12,6 +12,9 @@ import {
 import {
   BaiJamjuree_700Bold
 } from '@expo-google-fonts/bai-jamjuree';
+
+/* Importando a imagem do blur */
+import blurBg from './src/assets/bg-blur.png';
 
 export default function App() {
   /*Constante para trazer as fontes*/
@@ -26,10 +29,13 @@ export default function App() {
     return null;
   }
   return (
-    <View className="flex items-center justify-center bg-gray-900">
-      <Text className="text-5xl font-bold text-gray-50"></Text>
-      <StatusBar style="light" translucent />
-    </View>
+    <ImageBackground 
+      source={blurBg} 
+      className="relative flex-1 items-center bg-gray-900"
+      imageStyle={{position: "absolute", left: '-100%'}}
+      >
+        <StatusBar style="light" translucent />
+    </ImageBackground>
   );
 }
 
